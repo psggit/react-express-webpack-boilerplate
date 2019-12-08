@@ -6,7 +6,8 @@
   "scripts": {
     "build": "NODE_ENV=production webpack --config webpack.config.js",
     "build-client": "babel src --copy-files --out-dir./dist",
-    "start:dev": "NODE_ENV=development webpack-dev-server --config ./webpack.config.js",
+    "start:local": "BASE_URL=hipbar-dev.com NODE_ENV=development webpack-dev-server --config webpack.dev.js --history-api-fallback --disable-host-check",
+    "start:dev": "NODE_ENV=development webpack-dev-server --config ./webpack.dev.js",
     "start": "NODE_ENV=production node server.js"
   },
   "repository": {
@@ -16,33 +17,28 @@
   "keywords": [],
   "author": "Aparna Chinnaiah",
   "license": "ISC",
-  "babel": {
-    "presets": [
-      "env",
-      "react",
-      "stage-2"
-    ]
-  },
   "devDependencies": {
+    "@babel/core": "^7.6.2",
+    "@babel/preset-env": "^7.6.2",
+    "@babel/preset-react": "^7.0.0",
     "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.3",
-    "babel-loader": "^7.1.5",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-react": "^6.24.1",
+    "babel-loader": "^8.0.6",
     "babel-preset-stage-2": "^6.24.1",
-    "compression-webpack-plugin": "^2.0.0",
+    "compression-webpack-plugin": "^3.0.0",
     "react-hot-loader": "^4.3.5",
     "webpack": "^4.17.1",
     "webpack-cli": "^3.1.0",
     "webpack-dev-server": "^3.1.7"
   },
   "dependencies": {
-    "clean-webpack-plugin": "^0.1.19",
+    "clean-webpack-plugin": "^3.0.0",
     "express": "^4.16.3",
     "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.8.0",
     "path": "^0.12.7",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
+    "webpack-merge": "^4.2.2",
     "zlib": "^1.0.5"
   },
   "homepage": "https://github.com/psggit/react-boilerplate#readme"
